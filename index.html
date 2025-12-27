@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Manager</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+        
+    </style>
+</head>
+<body>
+    <!-- Simple Theme Toggle -->
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+        <span class="theme-icon">🌙</span>
+    </button>
+
+    <!-- Admin Panel -->
+    <div id="admin-panel" class="admin-panel">
+        <span>Admin: <strong id="admin-name"></strong></span>
+        <button id="logout-btn" class="btn btn-small">Logout</button>
+    </div>
+
+    <header>
+        <div class="logo">
+        <img src="src\pages\images\image.png" alt="">
+        </div>
+        <h1>Event Management System</h1>
+        <p class="subtitle">TypeScript Web Application</p>
+    </header>
+
+    <main>
+        <div class="container">
+            <!-- Simple Tabs -->
+            <nav class="tabs">
+                <button class="tab active" data-tab="events">Events</button>
+                <button class="tab" data-tab="create">Create Event</button>
+                <button class="tab" data-tab="registrations">Registrations</button>
+            </nav>
+
+            <!-- Events Section -->
+            <section id="events-section" class="tab-content active">
+                <h2>All Events</h2>
+                
+                <!-- Simple Filters -->
+                <div class="filters">
+                    <div class="filter-group">
+                        <label>Category:</label>
+                        <select id="category-filter">
+                            <option value="all">All</option>
+                            <option value="conference">Conference</option>
+                            <option value="sport">Sport</option>
+                            <option value="workshop">Workshop</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label>Date:</label>
+                        <input type="date" id="date-filter">
+                    </div>
+                    <button id="apply-filters" class="btn">Filter</button>
+                    <button id="clear-filters" class="btn btn-secondary">Clear</button>
+                </div>
+
+                <!-- Events Container -->
+                <div id="events-container" class="cards-container"></div>
+            </section>
+
+            <!-- Create Event Section -->
+            <section id="create-section" class="tab-content">
+                <!-- Admin Login Form -->
+                <div id="admin-login-form" class="form">
+                    <h3>Admin Login Required</h3>
+                    <p>Login to create events</p>
+                    
+                    <form id="login-form">
+                        <div class="form-group">
+                            <label>Admin Email</label>
+                            <input type="email" id="admin-email" placeholder="admin@eventmanager.com">
+                        </div>
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" id="admin-password" placeholder="••••••••">
+                        </div>
+                        <button type="submit" class="btn">Login</button>
+                    </form>
+                    
+                    <!-- <div class="demo-accounts">
+                        <p><strong>Demo Accounts:</strong></p>
+                        <p>admin@eventmanager.com / Admin@123</p>
+                        <p>manager@university.edu / Manager@2025</p>
+                    </div> -->
+                </div>
+
+                <!-- Event Creation Form -->
+                <form id="event-form" class="form">
+                    <h3>Create New Event</h3>
+                    
+                    <div class="form-group">
+                        <label>Event Title *</label>
+                        <input type="text" id="event-title" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Description *</label>
+                        <textarea id="event-description" rows="3" required></textarea>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Date *</label>
+                            <input type="date" id="event-date" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Location *</label>
+                            <input type="text" id="event-location" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Category *</label>
+                            <select id="event-category" required>
+                                <option value="">Select</option>
+                                <option value="conference">Conference</option>
+                                <option value="sport">Sport</option>
+                                <option value="workshop">Workshop</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Capacity *</label>
+                            <input type="number" id="event-capacity" min="1" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="submit" class="btn">Create Event</button>
+                        <button type="reset" class="btn btn-secondary">Clear</button>
+                    </div>
+                </form>
+            </section>
+
+            <!-- Registrations Section -->
+            <section id="registrations-section" class="tab-content">
+                <h2>Registrations</h2>
+                <div id="registrations-container" class="registrations-container"></div>
+            </section>
+
+            <!-- Event Detail Modal -->
+            <div id="event-modal" class="modal">
+                <div class="modal-content">
+                    <span class="close-modal">&times;</span>
+                    <div id="modal-content"></div>
+                    <div class="registration-form">
+                        <h3>Register for Event</h3>
+                        <form id="registration-form">
+                            <div class="form-group">
+                                <label>Full Name *</label>
+                                <input type="text" id="user-name" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Email *</label>
+                                <input type="email" id="user-email" required>
+                            </div>
+                            <button type="submit" class="btn">Register</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>Event Manager - TypeScript Project - 2025</p>
+    </footer>
+
+    <script type="module" src="dist/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+{
+  "name": "event-manager-typescript",
+  "version": "1.0.0",
+  "description": "TypeScript Web Application for Event Management - Final Project",
+  "scripts": {
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "dev": "tsc && open index.html",
+    "start": "tsc && live-server --port=3000 --open=index.html"
+  },
+  "keywords": [
+    "typescript",
+    "event-management",
+    "web-application",
+    "university-project"
+  ],
+  "author": "Alapani",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.3.0",
+    "live-server": "^1.2.2"
+  }
+}
