@@ -6,7 +6,7 @@
     "build": "tsc",
     "build:watch": "tsc --watch",
     "dev": "tsc && open index.html",
-    "start": "tsc && live-server --port=3000 --open=index.html"
+    "Alapani": "tsc && live-server --port=3000 --open=index.html"
   },
   "keywords": [
     "typescript",
